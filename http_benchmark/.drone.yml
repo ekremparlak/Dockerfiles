@@ -1,0 +1,20 @@
+---
+kind: pipeline
+name: default
+
+steps:
+- name: publish-http_benchmark
+  image: plugins/docker
+  settings:
+    dockerfile: http_benchmark/Dockerfile
+    context: http_benchmark
+    username:
+      from_secret: registry_username
+    password:
+      from_secret: registry_password
+    repo: 
+      from_secret: registry_repo
+    tags:
+      - latest
+    registry: 
+      from_secret: registry
