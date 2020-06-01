@@ -7,4 +7,3 @@ FROM debian:10-slim
 RUN apt update -y &&\
     apt install -y nghttp2-client
 COPY --from=0 /wrk/wrk /usr/local/bin
-
